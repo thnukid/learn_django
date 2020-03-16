@@ -40,3 +40,8 @@ Run server on a specific port
 ```
 $ python manage.py runserver 8080
 ```
+
+Migrate the database
+```
+$ python manage.py migrate
+```
