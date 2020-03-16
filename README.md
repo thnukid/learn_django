@@ -53,3 +53,15 @@ $ python manage.py migrate
 ```
 $ python manage.py startapp polls
 ```
+
+* Add a view [polls/views.py](/mysite/polls/views.py)
+* Add url to [polls/urls.py](/mysite/polls/urls.py)
+* Add app polls to mysite [mysite/urls.py](/mysite/mysite/urls.py)
+* Add app polls to mysite [mysite/urls.py](/mysite/mysite/urls.py)
+
+Verify
+```
+$ python manage.py runserver
+```
+
+Visit [http://localhost:8000/polls/](http://localhost:8000/polls/)
