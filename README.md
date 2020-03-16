@@ -3,6 +3,11 @@ Following the [Guide](https://docs.djangoproject.com/en/3.0/)
 
 ### Setup Env
 
+Prerequisite
+
+* pipenv
+* asdf
+
 ```
 $ virtualenv python_env
 ```
