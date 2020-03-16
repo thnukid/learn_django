@@ -45,3 +45,11 @@ Migrate the database
 ```
 $ python manage.py migrate
 ```
+
+### Polls app
+
+[Creating the polls app](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-the-polls-app)
+
+```
+$ python manage.py startapp polls
+```
