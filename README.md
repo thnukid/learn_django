@@ -34,3 +34,9 @@ $ python -m django --version
 ```
 $ django-admin startproject mysite
 ```
+
+Run server on a specific port
+
+```
+$ python manage.py runserver 8080
+```
