@@ -30,3 +30,7 @@ $ python -m django --version
 ### Tutorial 01
 
 [Creating a project](https://docs.djangoproject.com/en/3.0/intro/tutorial01/)
+
+```
+$ django-admin startproject mysite
+```
