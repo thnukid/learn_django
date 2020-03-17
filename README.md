@@ -264,4 +264,4 @@ Visit [Django Administration](http://127.0.0.1:8000/admin/)
 
 [Writing more views](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#writing-more-views)
 
-
+[Write Views that actually do something](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#write-views-that-actually-do-something)
