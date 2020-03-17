@@ -255,3 +255,7 @@ $ python manage.py runserver
 ```
 
 Visit [Django Administration](http://127.0.0.1:8000/admin/)
+
+### Make the poll app modifiable in the admin
+
+[Make the poll app modifiable in the admin](https://docs.djangoproject.com/en/3.0/intro/tutorial02/#make-the-poll-app-modifiable-in-the-admin)
