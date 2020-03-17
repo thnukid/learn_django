@@ -270,4 +270,8 @@ Visit [Django Administration](http://127.0.0.1:8000/admin/)
 
 > [...] template should be at polls/templates/polls/index.html.
 
+[A shortcut: render()](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#a-shortcut-render)
 
+> The render() function takes the request object as its first argument, a template name as
+  its second argument and a dictionary as its optional third argument.
+  It returns an HttpResponse object of the given template rendered with the given context.
