@@ -510,3 +510,20 @@ Edit `polls/templates/polls/index.html`
 
 The {% static %} template tag generates the absolute URL of static files.
 
+### Tutorial 07
+
+[Customize the admin form](https://docs.djangoproject.com/en/3.0/intro/tutorial07/#customize-the-admin-form)
+
+Edit `polls/admin.py` to make the “Publication date” come before the “Question” field
+```
+from django.contrib import admin
+
+from .models import Question
+
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['pub_date', 'question_text']
+
+admin.site.register(Question, QuestionAdmin)
+```
+
