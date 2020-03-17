@@ -304,3 +304,22 @@ def detail(request, question_id):
   It raises Http404 if the list is empty.
 
 [Use the template system](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#use-the-template-system)
+
+[Removing hardcoded URLs in templates](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#removing-hardcoded-urls-in-templates)
+
+Hardcoded URLs
+```
+<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+```
+
+Using `url` helper
+```
+<li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+```
+
+URL definition as specified in the polls.urls module in `polls/urls.py`
+```
+# the 'name' value as called by the {% url %} template tag
+path('<int:question_id>/', views.detail, name='detail'),
+```
+
