@@ -475,3 +475,8 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#x27;s up?</a></li>\n  
 <QuerySet [<Question: What's up?>]>
 ```
 
+### Improving our view
+
+[Improving our view](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#improving-our-view)
+
+
