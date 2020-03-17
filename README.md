@@ -265,3 +265,9 @@ Visit [Django Administration](http://127.0.0.1:8000/admin/)
 [Writing more views](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#writing-more-views)
 
 [Write Views that actually do something](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#write-views-that-actually-do-something)
+
+> By convention DjangoTemplates looks for a “templates” subdirectory in each of the INSTALLED_APPS.
+
+> [...] template should be at polls/templates/polls/index.html.
+
+
