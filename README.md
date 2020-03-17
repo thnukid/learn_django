@@ -488,3 +488,25 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#x27;s up?</a></li>\n  
 
 [Testing the DetailView](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#testing-the-detailview)
 
+### Tutorial 06
+
+[Customize your app’s look and feel](https://docs.djangoproject.com/en/3.0/intro/tutorial06/#customize-your-app-s-look-and-feel)
+
+* django.contrib.staticfiles -  it collects static files from each of your applications (and any other places you specify) into a single location
+
+* STATICFILES_FINDERS setting contains a list of finders that know how to discover static files from various sources
+
+* AppDirectoriesFinder which looks for a “static” subdirectory in each of the INSTALLED_APPS,
+
+Create `polls/static/polls/style.css`
+
+Edit `polls/templates/polls/index.html`
+
+```
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+```
+
+The {% static %} template tag generates the absolute URL of static files.
+

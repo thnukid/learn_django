@@ -1,0 +1,10 @@
+body {
+    background: white url("images/background.jpeg") no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    color: white;
+}
+
+li a {
+    color: green;
+}
