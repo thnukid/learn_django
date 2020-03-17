@@ -275,3 +275,29 @@ Visit [Django Administration](http://127.0.0.1:8000/admin/)
 > The render() function takes the request object as its first argument, a template name as
   its second argument and a dictionary as its optional third argument.
   It returns an HttpResponse object of the given template rendered with the given context.
+
+[Raising a 404 error](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#raising-a-404-error)
+
+```
+# polls/views.py
+def detail(request, question_id):
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'polls/detail.html', {'question': question})
+```
+
+[A shortcut: get_object_or_404()](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#a-shortcut-get-object-or-404)
+
+```
+# polls/views.py
+from django.shortcuts import get_object_or_404, render
+
+from .models import Question
+# ...
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+```
+
