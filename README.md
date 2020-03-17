@@ -206,7 +206,7 @@ DoesNotExist: Question matching query does not exist.
 
 # Give the Question a couple of Choices. The create call constructs a new
 # Choice object, does the INSERT statement, adds the choice to the set
-# of available choices and returns the new Choice object. Django creates
+[# of available choices and returns the new Choice object. Django creates
 # a set to hold the "other side" of a ForeignKey relation
 # (e.g. a question's choice) which can be accessed via the API.
 >>> q = Question.objects.get(pk=1)
@@ -237,3 +237,21 @@ DoesNotExist: Question matching query does not exist.
 >>> c = q.choice_set.filter(choice_text__startswith='Just hacking')
 >>> c.delete()
 ```
+
+### Django Admin
+
+[Introducing Django Admin](https://docs.djangoproject.com/en/3.0/intro/tutorial02/#introducing-the-django-admin)
+
+Creating an admin user
+
+```
+$ python manage.py createsuperuser
+```
+
+Start the development server
+
+```
+$ python manage.py runserver
+```
+
+Visit [Django Administration](http://127.0.0.1:8000/admin/)
