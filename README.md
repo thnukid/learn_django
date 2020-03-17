@@ -727,3 +727,9 @@ recursive-include docs *
 $ mkdir -p django-polls/docs
 $ echo 'recursive-include docs *' >> django-polls/MANIFEST.in
 ```
+
+Building a package, run from inside django-polls).
+
+```
+$ cd django-polls && python setup.py sdist && cd -
+```
