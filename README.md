@@ -480,3 +480,6 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#x27;s up?</a></li>\n  
 [Improving our view](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#improving-our-view)
 
 
+### Testing our new view
+
+[Testing our new view](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#testing-our-new-view)
