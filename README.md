@@ -395,3 +395,44 @@ In `polls/views.py`
 * For DetailView the question variable is provided automatically – since we’re using a Django model (Question), Django is able to determine an appropriate name for the context variable.
 
 * However, for ListView, the automatically generated context variable is question_list. To override this we provide the context_object_name attribute, specifying that we want to use latest_question_list instead.
+
+### Tutorial 05
+
+[Introducing automated testing](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#introducing-automated-testing)
+
+[Why you need to create tests](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#why-you-need-to-create-tests)
+
+* [Tests will saveyou time](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#tests-will-save-you-time)
+
+* [Tests don’t just identify problems, they prevent them](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#tests-don-t-just-identify-problems-they-prevent-them)
+
+* [Tests make your code more attractive](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#tests-make-your-code-more-attractive)
+
+* [Tests help teams work together](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#tests-help-teams-work-together)
+
+[Writing our first test](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#writing-our-first-test)
+
+Since things in the future are not ‘recent’, this is clearly wrong.
+
+```
+>>> import datetime
+>>> from django.utils import timezone
+>>> from polls.models import Question
+>>> # create a Question instance with pub_date 30 days in the future
+>>> future_question = Question(pub_date=timezone.now() + datetime.timedelta(days=30))
+>>> # was it published recently?
+>>> future_question.was_published_recently()
+True
+```
+
+* the testing system will automatically find tests in any file whose name begins with test.
+
+[Create a test to expose the bug](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#create-a-test-to-expose-the-bug)
+
+```
+$ python manage.py test polls
+```
+
+[Fixing the bug](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#fixing-the-bug)
+
+[More comprehensive tests](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#more-comprehensive-tests)
