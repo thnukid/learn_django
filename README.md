@@ -134,3 +134,30 @@ $ python manage.py shell
 # objects.all() displays all the questions in the database.
 >>> Question.objects.all()
 ```
+
+### __str__()
+
+> Wait a minute. <Question: Question object (1)> isn’t a helpful representation of this object.
+
+```
+>>> Question.objects.all()
+<QuerySet [<Question: Question object (1)>]>
+```
+
+> adding a __str__() method to both Question and Choice
+
+```
+from django.db import models
+
+class Question(models.Model):
+    # ...
+    def __str__(self):
+        return self.question_text
+
+class Choice(models.Model):
+    # ...
+    def __str__(self):
+        return self.choice_text
+```
+
+
