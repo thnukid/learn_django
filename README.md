@@ -1,5 +1,10 @@
 # Learn Django 3.0
+
 Following the [Guide](https://docs.djangoproject.com/en/3.0/)
+
+## Other Resources
+
+* [Django Packages](https://djangopackages.org/) aka Rails Gems / Engines
 
 ### Setup Env
 
@@ -643,4 +648,82 @@ $ python -c "import django; print(django.__path__)"
   Django itself (django/contrib/admin/templates) into that directory.
 
 
+## Advanced tutorial: How to write reusable apps
 
+[Advanced tutorial: How to write reusable apps](https://docs.djangoproject.com/en/3.0/intro/reusable-apps/#advanced-tutorial-how-to-write-reusable-apps)
+
+Install [setuptools](https://pypi.org/project/setuptools/)
+
+```
+pip install setuptools
+```
+
+Create these files in the root of the git repository:
+
+```
+$ mkdir -p django-polls
+$ touch django-polls/README.rst django-polls/LICENSE django-polls/setup.cfg django-polls/setup.py
+$ cp -r mysite/polls django-polls/
+```
+
+Edit `django-polls/setup.cfg`
+
+```
+[metadata]
+name = django-polls
+version = 0.1
+description = A Django app to conduct Web-based polls.
+long_description = file: README.rst
+url = https://www.example.com/
+author = Your Name
+author_email = yourname@example.com
+license = BSD-3-Clause  # Example license
+classifiers =
+    Environment :: Web Environment
+    Framework :: Django
+    Framework :: Django :: X.Y  # Replace "X.Y" as appropriate
+    Intended Audience :: Developers
+    License :: OSI Approved :: BSD License
+    Operating System :: OS Independent
+    Programming Language :: Python
+    Programming Language :: Python :: 3
+    Programming Language :: Python :: 3 :: Only
+    Programming Language :: Python :: 3.6
+    Programming Language :: Python :: 3.7
+    Programming Language :: Python :: 3.8
+    Topic :: Internet :: WWW/HTTP
+    Topic :: Internet :: WWW/HTTP :: Dynamic Content
+
+[options]
+include_package_data = true
+packages = find:
+```
+
+Edit `django-polls/setup.py`
+
+```
+from setuptools import setup
+
+setup()
+```
+
+* Only Python modules and packages are included in the package by default.
+
+* To include additional files, we’ll need to create a MANIFEST.in file
+
+Edit `django-polls/MANIFEST.in`
+
+```
+include LICENSE
+include README.rst
+recursive-include polls/static *
+recursive-include polls/templates *
+recursive-include docs *
+```
+
+* Recommended :+1: To include detailed documentation with your app.
+
+```
+$ mkdir -p django-polls/docs
+$ echo 'recursive-include docs *' >> django-polls/MANIFEST.in
+```
