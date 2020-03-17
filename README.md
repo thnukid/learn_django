@@ -352,3 +352,32 @@ to
 ```
 <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
 ```
+
+### Tutorial 04
+
+[Writing a minimal form](https://docs.djangoproject.com/en/3.0/intro/tutorial04/#write-a-minimal-form)
+
+In `polls/templates/pools/detail.html`
+
+* forloop.counter indicates how many times the for tag has gone through its loop
+
+* all POST forms that are targeted at internal URLs should use the {% csrf_token %} template tag.
+
+In `polls/views.py`
+
+* request.POST['choice'] returns the ID
+
+* request.POST values are always strings
+
+* request.GET for accessing GET data in the same way
+
+* request.POST['choice'] will raise KeyError if choice wasn’t provided in POST data
+
+* HttpResponseRedirect takes a single argument: the URL to which the user will be redirected
+
+* always return an HttpResponseRedirect after successfully dealing with POST data.
+
+* using the reverse() function in the HttpResponseRedirect constructor. This function helps avoid having to hardcode a URL in the view function.
+  reverse() call will return a string like '/polls/3/results/'
+
+[Avoid race-conditions using F()](https://docs.djangoproject.com/en/3.0/ref/models/expressions/#f-expressions)
