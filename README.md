@@ -436,3 +436,42 @@ $ python manage.py test polls
 [Fixing the bug](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#fixing-the-bug)
 
 [More comprehensive tests](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#more-comprehensive-tests)
+
+### The Django test client
+
+[Test a view](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#test-a-view)
+
+```
+>>> from django.test.utils import setup_test_environment
+>>> setup_test_environment()
+```
+
+* setup_test_environment() installs a template renderer which will allow us to examine some additional attributes on responses such as response.context that otherwise wouldn’t be available.
+
+```
+>>> from django.test import Client
+>>> # create an instance of the client for our use
+>>> client = Client()
+```
+
+```
+>>> # get a response from '/'
+>>> response = client.get('/')
+Not Found: /
+>>> # we should expect a 404 from that address; if you instead see an
+>>> # "Invalid HTTP_HOST header" error and a 400 response, you probably
+>>> # omitted the setup_test_environment() call described earlier.
+>>> response.status_code
+404
+>>> # on the other hand we should expect to find something at '/polls/'
+>>> # we'll use 'reverse()' rather than a hardcoded URL
+>>> from django.urls import reverse
+>>> response = client.get(reverse('polls:index'))
+>>> response.status_code
+200
+>>> response.content
+b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#x27;s up?</a></li>\n    \n    </ul>\n\n'
+>>> response.context['latest_question_list']
+<QuerySet [<Question: What's up?>]>
+```
+
