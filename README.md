@@ -323,3 +323,32 @@ URL definition as specified in the polls.urls module in `polls/urls.py`
 path('<int:question_id>/', views.detail, name='detail'),
 ```
 
+[Namespacing URL names](https://docs.djangoproject.com/en/3.0/intro/tutorial03/#namespacing-url-names)
+
+> For example, the polls app has a detail view, and so might an app on the same project that is for a blog.
+
+> The answer is to add namespaces to your URLconf. [...] Add an app_name to set the application namespace
+
+`polls/urls.py`
+
+```
+from django.urls import path
+
+from . import views
+
+app_name = 'polls'
+urlpatterns = [
+    # ...
+]
+```
+
+In `polls/templates/polls/index.html` change
+
+```
+<li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+```
+
+to
+```
+<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+```
