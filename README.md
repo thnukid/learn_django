@@ -733,3 +733,12 @@ Building a package, run from inside django-polls).
 ```
 $ cd django-polls && python setup.py sdist && cd -
 ```
+
+[Using your own package](https://docs.djangoproject.com/en/3.0/intro/reusable-apps/#using-your-own-package)
+
+Install the package
+
+```
+# inside `pipenv shell`
+$ python -m pip install --user django-polls/dist/django-polls-0.1.tar.gz
+```
