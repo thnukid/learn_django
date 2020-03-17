@@ -483,3 +483,8 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#x27;s up?</a></li>\n  
 ### Testing our new view
 
 [Testing our new view](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#testing-our-new-view)
+
+### Testing the DetailView
+
+[Testing the DetailView](https://docs.djangoproject.com/en/3.0/intro/tutorial05/#testing-the-detailview)
+
