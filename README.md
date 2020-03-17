@@ -515,6 +515,7 @@ The {% static %} template tag generates the absolute URL of static files.
 [Customize the admin form](https://docs.djangoproject.com/en/3.0/intro/tutorial07/#customize-the-admin-form)
 
 Edit `polls/admin.py` to make the “Publication date” come before the “Question” field
+
 ```
 from django.contrib import admin
 
@@ -527,3 +528,12 @@ class QuestionAdmin(admin.ModelAdmin):
 admin.site.register(Question, QuestionAdmin)
 ```
 
+Using fieldsets
+
+```
+class QuestionAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['question_text']}),
+        ('Date information', {'fields': ['pub_date']}),
+    ]
+```
