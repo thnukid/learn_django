@@ -569,3 +569,41 @@ admin.site.register(Question, QuestionAdmin)
 class ChoiceInline(admin.TabularInline):
     #...
 ```
+
+[Customize the admin change list](https://docs.djangoproject.com/en/3.0/intro/tutorial07/#customize-the-admin-change-list)
+
+Edit `polls/admin.py`
+
+```
+class QuestionAdmin(admin.ModelAdmin):
+    # ...
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
+```
+
+* Sorting, except the was_published_recently header, because sorting by the output of an arbitrary method is not supported.
+
+Edit `polls/models.py`
+
+```
+class Question(models.Model):
+    # ...
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+    was_published_recently.admin_order_field = 'pub_date'
+    was_published_recently.boolean = True
+    was_published_recently.short_description = 'Published recently?'
+```
+
+Edit `polls/admin.py` to display filters using the list_filter.
+
+```
+# QuestionAdmin
+list_filter = ['pub_date']
+```
+
+Adding search capability
+
+```
+search_fields = ['question_text']
+```
