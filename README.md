@@ -607,3 +607,40 @@ Adding search capability
 ```
 search_fields = ['question_text']
 ```
+
+[Customize the admin look and feel](https://docs.djangoproject.com/en/3.0/intro/tutorial07/#customize-the-admin-look-and-feel)
+
+Edit `mysite/settings.py`
+
+```
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+
+Finding Django source files
+
+```
+$ python -c "import django; print(django.__path__)"
+```
+
+* Template path is `[os.path.join(BASE_DIR, 'templates')]`
+
+* Now create a directory called admin inside templates, and copy the template admin/base_site.html
+  from within the default Django admin template directory in the source code of
+  Django itself (django/contrib/admin/templates) into that directory.
+
+
+
