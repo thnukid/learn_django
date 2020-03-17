@@ -562,3 +562,10 @@ class QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Question, QuestionAdmin)
 ```
+
+* With that TabularInline (instead of StackedInline), the related objects are displayed in a more compact, table-based format:
+
+```
+class ChoiceInline(admin.TabularInline):
+    #...
+```
